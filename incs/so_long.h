@@ -46,10 +46,15 @@ typedef struct s_data
 void	init_pull(t_data *data);
 t_data	*data_init(void);
 
-//		Map		//
+//			Map			//
 
 int	map_loader(t_data *data, char *av);
 
-//		Render		//
+//			Render		//
 int	render_map(t_data *data);
+
+//		Map Checker		//
+int	is_rectanlge(t_data *data);
+int	map_checker(t_data *data);
+
 #endif

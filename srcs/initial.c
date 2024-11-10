@@ -40,10 +40,8 @@ t_data	*data_init(void)
 	/*data->tiles = malloc(sizeof(char *) * 2);*/
 	/*if (!data->tiles)*/
 	/*	return (NULL);*/
-	printf("1\n");
 	init_null(data);
 	/*init_tiles(data);*/
-	printf("2\n");
 	data->tile_size = SIZE;
 	data->mlx = mlx_init();
 	return (data);

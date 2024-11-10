@@ -22,9 +22,11 @@ int	map_loader(t_data *data, char *av)
 		return (1);
 	while (get_next_line(fd) != NULL)
 		data->map->height++;
+	if (!data->map->height)
+		return (0);
 	data->map->maps = malloc(sizeof(char *) * (data->map->height + 1));
 	if (!data->map->maps)
-		return (1);
+		return (0);
 	close (fd);
 
 	fd = open(av, O_RDONLY);
