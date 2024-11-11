@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afogonca <afogonca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 10:00:30 by afogonca          #+#    #+#             */
-/*   Updated: 2024/11/05 10:00:33 by afogonca         ###   ########.fr       */
+/*   Created: 2024/10/31 11:53:24 by afogonca          #+#    #+#             */
+/*   Updated: 2024/10/31 12:09:11 by afogonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../libft.h"
 
-void	*ft_calloc(size_t nbytes, size_t size)
+void	*ft_calloc_gnl(size_t nbytes, size_t size)
 {
 	size_t			i;
 	unsigned char	*str;
@@ -26,7 +26,7 @@ void	*ft_calloc(size_t nbytes, size_t size)
 	return (str);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr_gnl(char *s, int c)
 {
 	if (!s)
 		return (0);
@@ -39,7 +39,7 @@ char	*ft_strchr(char *s, int c)
 	return ((char *) s);
 }
 
-int	ft_strlen(const char *str)
+int	ft_strlen_gnl(const char *str)
 {
 	int	i;
 
@@ -51,22 +51,22 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	int		i;
 	int		j;
 	char	*str;
 
 	if (!s1)
-		s1 = (char *) ft_calloc(1, sizeof(char));
+		s1 = (char *) ft_calloc_gnl(1, sizeof(char));
 	if (!s1 || !s2)
 		return (NULL);
-	if (ft_strlen(s1) + ft_strlen(s2) == 0)
+	if (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) == 0)
 	{
 		free(s1);
 		return (NULL);
 	}
-	str = ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
+	str = ft_calloc_gnl((ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1), sizeof(char));
 	if (!str)
 		return (NULL);
 	i = -1;
@@ -93,7 +93,7 @@ char	*ft_bufferupdt(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	temp = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	temp = ft_calloc_gnl((ft_strlen_gnl(buffer) - i + 1), sizeof(char));
 	if (!temp)
 		return (NULL);
 	j = 0;

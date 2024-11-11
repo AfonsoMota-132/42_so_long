@@ -17,8 +17,6 @@ MLXFLAGS = -L ./libs/minilibx-linux -lm -Ilmlx -lXext -lX11 -g
 
 LIBS = libs/mlx/libmlx.a libs/libft/libft.a
 
-GNL = libs/gnl/get_next_line.c libs/gnl/get_next_line_utils.c
-
 SRCS = srcs/main.c srcs/initial.c srcs/map_loader.c srcs/map_render.c \
 		srcs/map_checker.c srcs/key_hook.c srcs/ft_free.c \
 		srcs/player_mov.c $(GNL)

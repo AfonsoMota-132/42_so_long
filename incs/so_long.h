@@ -20,7 +20,7 @@
 # include <X11/X.h>
 # include <fcntl.h>
 # include "../libs/mlx/mlx.h"
-# include "../libs/gnl/get_next_line.h"
+# include "../libs/libft/libft.h"
 # include <stdio.h>
 
 # define SIZE 64

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../libft.h"
 
 char	*ft_getline(char *buffer)
 {
@@ -22,7 +22,7 @@ char	*ft_getline(char *buffer)
 		return (NULL);
 	while (buffer[i] != '\n' && buffer[i])
 		i++;
-	line = ft_calloc((i + 2), sizeof(char));
+	line = ft_calloc_gnl((i + 2), sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -49,7 +49,7 @@ char	*ft_read(int fd, char *buffer)
 	if (!temp)
 		return (NULL);
 	byte = 1;
-	while (!ft_strchr(buffer, '\n') && byte > 0)
+	while (!ft_strchr_gnl(buffer, '\n') && byte > 0)
 	{
 		byte = read(fd, temp, BUFFER_SIZE);
 		if (byte < 0)
@@ -59,7 +59,7 @@ char	*ft_read(int fd, char *buffer)
 			return (NULL);
 		}
 		temp[byte] = '\0';
-		buffer = ft_strjoin(buffer, temp);
+		buffer = ft_strjoin_gnl(buffer, temp);
 	}
 	free(temp);
 	return (buffer);
@@ -73,7 +73,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	buffer = ft_read(fd, buffer);
-	if (!ft_strlen(buffer))
+	if (!ft_strlen_gnl(buffer))
 	{
 		free(buffer);
 		return (NULL);

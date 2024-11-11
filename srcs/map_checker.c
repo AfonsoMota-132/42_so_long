@@ -31,14 +31,20 @@ int	has_walls(t_data *data)
 	int	x;
 	int	y;
 
-	x = 0;
-	y = 0;
-	while (x < data->map->width)
+	x = -1;
+	while (++x < data->map->width)
 	{
 		if (data->map->maps[0][x] != '1' 
 			|| data->map->maps[data->map->height - 1][x] != '1')
 			return(1);
-		x++;
+	}
+
+	y = 0;
+	while (y++ < data->map->height - 1)
+	{
+		if (data->map->maps[y][0] != '1' 
+			|| data->map->maps[y][data->map->width - 1])
+			return (1);
 	}
 	return (0);
 }
@@ -87,22 +93,22 @@ int	map_checker(t_data *data)
 {
 	if (is_rectangle(data) == 1)
 	{
-		write(1, "Not a rectangle!\n", 17);
+		ft_printf("Not a rectangle!\n");
 		return (1);
 	}
 	if (has_walls(data) == 1) 
 	{
-		write(1, "The walls are not complete!\n", 29);
+		ft_printf("The walls are not complete!\n");
 		return (1);
 	}
 	if (has_one_pla(data) == 1)
 	{
-		write(1, "More than one player!\n", 29);
+		ft_printf("More than one player!\n");
 		return (1);
 	}
 	if (has_one_exit(data) == 1)
 	{
-		write(1, "More than one exit!\n", 29);
+		ft_printf("More than one exit!\n");
 		return (1);
 	}
 	return (0);
