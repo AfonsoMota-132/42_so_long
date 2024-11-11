@@ -24,21 +24,35 @@
 # include <stdio.h>
 
 # define SIZE 64
+
+typedef struct s_player
+{
+	int	x;
+	int	y;
+	int	collect;
+	int	moves;
+	int	to_x;
+	int	to_y;
+}	t_player;
+
 typedef struct s_map
 {
-	int	height;
-	int	width;
+	int		height;
+	int		width;
 	char	**maps;
-} t_map;
+}	t_map;
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*win;
-	void	*tiles;
-	t_map *map;
-	int		tile_size;
-} t_data;
+	void		*mlx;
+	void		*win;
+	void		**tiles;
+	t_map		*map;
+	t_player	*player;
+	int			exit;
+	int			tile_size;
+	int			collect;
+}	t_data;
 
 //		Functions		//
 
@@ -48,13 +62,29 @@ t_data	*data_init(void);
 
 //			Map			//
 
-int	map_loader(t_data *data, char *av);
+int		map_loader(t_data *data, char *av);
+void	count_collect(t_data *data);
 
 //			Render		//
-int	render_map(t_data *data);
+int		render_map(t_data *data);
 
 //		Map Checker		//
-int	is_rectanlge(t_data *data);
-int	map_checker(t_data *data);
+int		is_rectanlge(t_data *data);
+int		map_checker(t_data *data);
+
+//		Key_hooks		//
+
+int		key_hook(int keycode, t_data *data);
+
+//		Free Game		//
+
+int		ft_free(t_data *data);
+
+//		Player Mov		//
+
+int		move_up(t_data *data);
+int		move_left(t_data *data);
+int		move_down(t_data *data);
+int		move_right(t_data *data);
 
 #endif
