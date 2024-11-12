@@ -71,6 +71,9 @@ int		render_map(t_data *data);
 //		Map Checker		//
 int		is_rectanlge(t_data *data);
 int		map_checker(t_data *data);
+int		flood(t_data *data);
+void	flood_fill(char **maps, t_data *data, int x, int y);
+int		flood_check(char **maps, t_data *data);
 
 //		Key_hooks		//
 

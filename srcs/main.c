@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 			return (0);
 		if (map_loader(data, av[1]) == 1)
 			return (ft_free(data));
-		if (map_checker(data) == 1)
+		if (map_checker(data) > 0)
 			return (ft_free(data));
 		data->win = mlx_new_window(data->mlx, (data->map->width * 100),
 				(data->map->height * 100), "So long");

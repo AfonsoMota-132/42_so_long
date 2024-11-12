@@ -19,7 +19,7 @@ LIBS = libs/mlx/libmlx.a libs/libft/libft.a
 
 SRCS = srcs/main.c srcs/initial.c srcs/map_loader.c srcs/map_render.c \
 		srcs/map_checker.c srcs/key_hook.c srcs/ft_free.c \
-		srcs/player_mov.c $(GNL)
+		srcs/player_mov.c srcs/map_checker2.c $(GNL)
 NAME = so_long
 
 all : deps $(NAME)
