@@ -77,9 +77,8 @@ void	flood_fill(char **maps, t_data *data, int x, int y);
 int		flood_check(char **maps, t_data *data);
 
 //		Key_hooks		//
-
 int		key_hook(int keycode, t_data *data);
-
+int		ft_kill(t_data *data);
 //		Free Game		//
 
 int		ft_free(t_data *data);

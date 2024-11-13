@@ -45,7 +45,6 @@ int	render_map(t_data *data)
 	int		x;
 	int		y;
 	int		tile;
-	void	*wtf;
 
 	y = -1;
 	while (++y < data->map->height)

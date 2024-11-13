@@ -15,7 +15,7 @@
 int	is_rectangle(t_data *data)
 {
 	int	lines;
-	int	line;
+	size_t line;
 
 	lines = 0;
 	line = ft_strlen(data->map->maps[lines]);

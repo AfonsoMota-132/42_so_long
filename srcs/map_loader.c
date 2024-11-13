@@ -43,8 +43,6 @@ int	map_loader(t_data *data, char *av)
 {
 	int		fd;
 	int		i;
-	char	*line;
-	char	*idk;
 
 	map_loader_init(data, av);
 	fd = open(av, O_RDONLY);

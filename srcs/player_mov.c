@@ -34,7 +34,7 @@ int	move(t_data *data)
 	data->player->x = data->player->to_x;
 	data->player->y = data->player->to_y;
 	data->player->moves++;
-	printf("moves:		%i\n", data->player->moves);
+	printf("moves: %i\n", data->player->moves);
 	return (0);
 }
 
