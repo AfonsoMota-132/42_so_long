@@ -28,9 +28,9 @@ int	move(t_data *data)
 	else if (data->map->maps[data->player->to_y][data->player->to_x] == 'E')
 		return (1);
 	mlx_put_image_to_window(data->mlx, data->win, data->tiles[0],
-		(data->player->x * 100), (data->player->y * 100));
+		(data->player->x * SIZE), (data->player->y * SIZE));
 	mlx_put_image_to_window(data->mlx, data->win, data->tiles[1],
-		(data->player->to_x * 100), (data->player->to_y * 100));
+		(data->player->to_x * SIZE), (data->player->to_y * SIZE));
 	data->player->x = data->player->to_x;
 	data->player->y = data->player->to_y;
 	data->player->moves++;

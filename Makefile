@@ -13,7 +13,10 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -L ./libs/minilibx-linux -lm -Ilmlx -lXext -lX11 -g
+RM = rm -f
 
+
+MAPS_INV = $(shell ls -la maps/invalid | grep inv)
 
 LIBS = libs/mlx/libmlx.a libs/libft/libft.a
 
@@ -28,5 +31,22 @@ deps:
 	$(MAKE) -C ./libs/mlx
 	$(MAKE) -C ./libs/libft
 
+MYDIR = ./maps/invalid
+list:
+		for	map in $(MAPS_INV); do echo $$(map); done
+
 $(NAME):
-	$(CC) $(SRCS) $(LIBS) $(MLXFLAGS)
+	$(CC) -o $(NAME) $(SRCS) $(LIBS) $(MLXFLAGS)
+
+clean:
+
+fclean:
+	$(MAKE) fclean -C ./libs/libft/
+	$(MAKE) fclean -C ./libs/libft/
+	$(RM) $(NAME)
+
+
+re: fclean all
+	$(MAKE) re -C ./libs/libft/
+	$(MAKE) re -C ./libs/libft/
+

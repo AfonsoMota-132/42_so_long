@@ -11,12 +11,23 @@
 /* ************************************************************************** */
 
 #include "../incs/so_long.h"
+
+void	ft_free_arr(char **maps, t_data *data)
+{
+	int	y;
+
+	y = -1;
+	while (++y < data->map->height)
+		free(maps[y]);
+	free(maps);
+}
+
 int	flood(t_data *data)
 {
 	char	**maps;
 	int		y;
 
-	maps = malloc(sizeof(char *) * data->map->height + 1);
+	maps = malloc(sizeof(char *) * data->map->height);
 	if (!maps)
 	{
 		ft_free(data);
@@ -25,9 +36,8 @@ int	flood(t_data *data)
 	y = -1;
 	while (++y < data->map->height)
 		maps[y] = ft_strdup(data->map->maps[y]);
-	printf("width:%i \nheight: %i\n", data->map->width, data->map->height);
 	flood_fill(maps, data, data->player->x, data->player->y);
-	return(flood_check(maps, data));
+	return (flood_check(maps, data));
 }
 
 void	flood_fill(char **maps, t_data *data, int x, int y)
@@ -38,14 +48,13 @@ void	flood_fill(char **maps, t_data *data, int x, int y)
 		return ;
 	if (maps[y][x] != '1')
 		maps[y][x] = 'f';
-
 	flood_fill(maps, data, x + 1, y);
 	flood_fill(maps, data, x - 1, y);
 	flood_fill(maps, data, x, y + 1);
 	flood_fill(maps, data, x, y - 1);
 }
 
-int		flood_check(char **maps, t_data *data)
+int	flood_check(char **maps, t_data *data)
 {
 	int	x;
 	int	y;
@@ -56,16 +65,25 @@ int		flood_check(char **maps, t_data *data)
 		x = -1;
 		while (++x < data->map->width)
 		{
-			if(maps[y][x] != '1' && maps[y][x] != 'f')
+			if (maps[y][x] != '1' && maps[y][x] != 'f')
+			{
+				ft_free_arr(maps, data);
 				return (1);
+			}
 		}
 	}
-	return 0;
-}
-
-int		has_all(t_data *data)
-{
-	
+	ft_free_arr(maps, data);
 	return (0);
 }
 
+int	file_check(char *av)
+{
+	int	len;
+	int	i;
+
+	len = ft_strlen(av);
+	i = 0;
+	while (av[len - 4 + i] && av[len - 4 + i] == ".ber"[i])
+		i++;
+	return (av[len - 4 + i] - ".ber"[i]);
+}

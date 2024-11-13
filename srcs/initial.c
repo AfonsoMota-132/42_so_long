@@ -27,17 +27,29 @@ void	count_collect(t_data *data)
 				data->collect++;
 		}
 	}
-	printf("Collectables: %i\n", data->collect);
 }
+
 void	init_tiles(t_data *data)
 {
 	data->tiles[0] = mlx_xpm_file_to_image(data->mlx, "./imgs/ground.xpm",
 			&data->tile_size, &data->tile_size);
-	data->tiles[1] = mlx_xpm_file_to_image(data->mlx, "./imgs/knight.xpm",
+	data->tiles[1] = mlx_xpm_file_to_image(data->mlx, "./imgs/player.xpm",
 			&data->tile_size, &data->tile_size);
-	data->tiles[2] = mlx_xpm_file_to_image(data->mlx, "./imgs/coin.xpm",
+	data->tiles[2] = mlx_xpm_file_to_image(data->mlx, "./imgs/egg.xpm",
 			&data->tile_size, &data->tile_size);
-	data->tiles[3] = mlx_xpm_file_to_image(data->mlx, "./imgs/castle.xpm",
+	data->tiles[3] = mlx_xpm_file_to_image(data->mlx, "./imgs/coop.xpm",
+			&data->tile_size, &data->tile_size);
+	data->tiles[4] = mlx_xpm_file_to_image(data->mlx, "./imgs/corner-ul.xpm",
+			&data->tile_size, &data->tile_size);
+	data->tiles[5] = mlx_xpm_file_to_image(data->mlx, "./imgs/corner-ur.xpm",
+			&data->tile_size, &data->tile_size);
+	data->tiles[6] = mlx_xpm_file_to_image(data->mlx, "./imgs/corner-bl.xpm",
+			&data->tile_size, &data->tile_size);
+	data->tiles[7] = mlx_xpm_file_to_image(data->mlx, "./imgs/corner-br.xpm",
+			&data->tile_size, &data->tile_size);
+	data->tiles[8] = mlx_xpm_file_to_image(data->mlx, "./imgs/top_bot.xpm",
+			&data->tile_size, &data->tile_size);
+	data->tiles[9] = mlx_xpm_file_to_image(data->mlx, "./imgs/left_right.xpm",
 			&data->tile_size, &data->tile_size);
 }
 
@@ -52,6 +64,8 @@ void	init_null(t_data *data)
 	data->player->y = 0;
 	data->player->moves = 0;
 	data->player->collect = 0;
+	data->exit = 0;
+	data->collect = 0;
 }
 
 t_data	*data_init(void)
@@ -66,7 +80,7 @@ t_data	*data_init(void)
 	}
 	data->tile_size = SIZE;
 	data->map = malloc(sizeof(t_map));
-	data->tiles = malloc(4 * sizeof(void *));
+	data->tiles = malloc(10 * sizeof(void *));
 	data->player = malloc(sizeof(t_player));
 	if (!data->map || !data->tiles || !data->player)
 	{

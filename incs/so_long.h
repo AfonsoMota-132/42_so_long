@@ -23,7 +23,7 @@
 # include "../libs/libft/libft.h"
 # include <stdio.h>
 
-# define SIZE 64
+# define SIZE 128
 
 typedef struct s_player
 {
@@ -69,6 +69,7 @@ void	count_collect(t_data *data);
 int		render_map(t_data *data);
 
 //		Map Checker		//
+int		file_check(char *av);
 int		is_rectanlge(t_data *data);
 int		map_checker(t_data *data);
 int		flood(t_data *data);

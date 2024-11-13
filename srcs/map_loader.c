@@ -14,8 +14,8 @@
 
 int	map_loader_init(t_data *data, char *av)
 {
-	int fd;
-	char *gnl;
+	int		fd;
+	char	*gnl;
 
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
@@ -27,17 +27,6 @@ int	map_loader_init(t_data *data, char *av)
 		gnl = get_next_line(fd);
 	}
 	free(gnl);
-	/*line = get_next_line(fd);*/
-	/*data->map->height = 1;*/
-	/*while (line != NULL)*/
-	/*{*/
-	/*	data->map->height++;*/
-	/*	free(line);*/
-	/*	line = get_next_line(fd);*/
-	/*	if (!line)*/
-	/*		break ;*/
-	/*}*/
-	/*free(line);*/
 	if (!data->map->height)
 		return (1);
 	data->map->maps = malloc(sizeof(char *) * (data->map->height + 1));
@@ -49,12 +38,13 @@ int	map_loader_init(t_data *data, char *av)
 	close (fd);
 	return (0);
 }
+
 int	map_loader(t_data *data, char *av)
 {
-	int	fd;
-	int	i;
-	char *line;
-	char *idk;
+	int		fd;
+	int		i;
+	char	*line;
+	char	*idk;
 
 	map_loader_init(data, av);
 	fd = open(av, O_RDONLY);
@@ -69,5 +59,5 @@ int	map_loader(t_data *data, char *av)
 	i = 0;
 	close (fd);
 	data->map->width = ft_strlen(data->map->maps[0]) - 1;
-	return (0); 
+	return (0);
 }
