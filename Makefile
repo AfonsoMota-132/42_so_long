@@ -35,6 +35,9 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(MLXFLAGS) -o $(NAME)
 
 clean:
+	$(MAKE) clean -C ./libs/libft/
+	$(MAKE) clean -C ./libs/libft/
+	$(RM) $(OBJS)
 
 fclean:
 	$(MAKE) fclean -C ./libs/libft/
