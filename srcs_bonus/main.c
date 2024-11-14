@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/so_long.h"
-#include <X11/X.h>
-#include <fcntl.h>
+#include "../incs/so_long_bonus.h"
 
 int	check_dir(char *av)
 {

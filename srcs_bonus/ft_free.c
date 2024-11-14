@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/so_long.h"
+#include "../incs/so_long_bonus.h"
 
 void	ft_free_arr(char **maps, t_data *data)
 {
@@ -27,7 +27,7 @@ void	ft_free_tiles(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < 11)
+	while (i < 14)
 		mlx_destroy_image(data->mlx, data->tiles[i++]);
 	free(data->tiles);
 }

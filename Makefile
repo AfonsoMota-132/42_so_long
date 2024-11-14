@@ -12,7 +12,7 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-MLXFLAGS = -L ./libs/minilibx-linux -lm -Ilmlx -lXext -lX11 -g
+MLXFLAGS = -L ./libs/minilibx-linux -lm -Ilmlx -lXext -lX11
 RM = rm -f
 
 LIBS = libs/mlx/libmlx.a libs/libft/libft.a
@@ -22,30 +22,42 @@ SRCS = srcs/main.c srcs/initial.c srcs/map_loader.c srcs/map_render.c \
 		srcs/map_checker.c srcs/key_hook.c srcs/ft_free.c \
 		srcs/player_mov.c srcs/map_checker2.c
 
-NAME = so_long
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+BONUS_SRCS = srcs_bonus/main.c srcs_bonus/initial.c srcs_bonus/map_loader.c	\
+		srcs_bonus/map_render.c srcs_bonus/map_checker.c srcs/key_hook.c	\
+		srcs/ft_free.c srcs_bonus/player_mov.c srcs/map_checker2.c
 
+
+NAME = so_long
+BONUS_NAME = so_long_bonus
+
+deps:
+	$(MAKE) -C ./libs/mlx/
+	$(MAKE) -C ./libs/libft/
 
 all : deps $(NAME)
 
-deps:
-	$(MAKE) -C ./libs/mlx
-	$(MAKE) -C ./libs/libft
-
 $(NAME): $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(MLXFLAGS) -o $(NAME)
+
+bonus: deps $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBS) $(MLXFLAGS) -o $(BONUS_NAME)
 
 clean:
 	$(MAKE) clean -C ./libs/libft/
 	$(MAKE) clean -C ./libs/libft/
 	$(RM) $(OBJS)
+	$(RM) $(BONUS_OBJS)
 
 fclean:
 	$(MAKE) fclean -C ./libs/libft/
 	$(MAKE) fclean -C ./libs/libft/
 	$(RM) $(NAME)
+	$(RM) $(BONUS_NAME)
 
+gdb: deps
+	$(CC) $(CFLAGS) $(SRCS) $(LIBS) $(MLXFLAGS) -g
 
 re: fclean all
-	$(MAKE) re -C ./libs/libft/
-	$(MAKE) re -C ./libs/libft/
-
