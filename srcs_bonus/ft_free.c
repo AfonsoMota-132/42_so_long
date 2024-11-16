@@ -27,7 +27,7 @@ void	ft_free_tiles(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < 14)
+	while (i < 15)
 		mlx_destroy_image(data->mlx, data->tiles[i++]);
 	free(data->tiles);
 }

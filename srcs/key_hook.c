@@ -33,7 +33,5 @@ int	key_hook(int keycode, t_data *data)
 		move_down(data);
 	else if (keycode == 65363 || keycode == 100)
 		move_right(data);
-	else
-		printf("%i\n", keycode);
 	return (0);
 }

@@ -51,7 +51,7 @@ void	init_tiles(t_data *data)
 {
 	data->tiles[0] = mlx_xpm_file_to_image(data->mlx, "./imgs/ground.xpm",
 			&data->tile_size, &data->tile_size);
-	data->tiles[1] = mlx_xpm_file_to_image(data->mlx, "./imgs/player.xpm",
+	data->tiles[1] = mlx_xpm_file_to_image(data->mlx, "./imgs/player_bot.xpm",
 			&data->tile_size, &data->tile_size);
 	data->tiles[2] = mlx_xpm_file_to_image(data->mlx, "./imgs/egg.xpm",
 			&data->tile_size, &data->tile_size);
@@ -64,6 +64,7 @@ void	init_null(t_data *data)
 {
 	data->mlx = 0;
 	data->win = 0;
+	data->map->maps = NULL;
 	data->map->height = 0;
 	data->map->width = 0;
 	data->tile_size = 0;

@@ -22,19 +22,17 @@ int	move(t_data *data, int d)
 	else if (data->map->maps[data->player->to_y][data->player->to_x] == 'E'
 		&& data->player->collect == data->collect)
 	{
-		printf("Game won!\n");
+		ft_printf("Game won!\n");
 		key_hook(65307, data);
 	}
 	else if (data->map->maps[data->player->to_y][data->player->to_x] == 'E')
 		return (1);
-	mlx_put_image_to_window(data->mlx, data->win, data->tiles[0],
-		(data->player->x * SIZE), (data->player->y * SIZE));
-	mlx_put_image_to_window(data->mlx, data->win, data->tiles[d],
-		(data->player->to_x * SIZE), (data->player->to_y * SIZE));
-	data->player->x = data->player->to_x;
-	data->player->y = data->player->to_y;
-	data->player->moves++;
-	printf("moves: %i\n", data->player->moves);
+	else if (data->map->maps[data->player->to_y][data->player->to_x] == 'M')
+	{
+		ft_printf("You're dead!\n");
+		key_hook(65307, data);
+	}
+	move2(data, d);
 	return (0);
 }
 

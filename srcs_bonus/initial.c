@@ -35,10 +35,11 @@ void	init_tiles2(t_data *data)
 			&data->tile_size, &data->tile_size);
 	data->tiles[11] = mlx_xpm_file_to_image(data->mlx, "./imgs/player_bot.xpm",
 			&data->tile_size, &data->tile_size);
-	data->tiles[12] = mlx_xpm_file_to_image(data->mlx,
-			"./imgs/player_right.xpm",
+	data->tiles[12] = mlx_xpm_file_to_image(data->mlx, "./imgs/player_right.xpm",
 			&data->tile_size, &data->tile_size);
 	data->tiles[13] = mlx_xpm_file_to_image(data->mlx, "./imgs/player_left.xpm",
+			&data->tile_size, &data->tile_size);
+	data->tiles[14] = mlx_xpm_file_to_image(data->mlx, "./imgs/mushroom.xpm",
 			&data->tile_size, &data->tile_size);
 }
 
@@ -71,6 +72,7 @@ void	init_null(t_data *data)
 {
 	data->mlx = 0;
 	data->win = 0;
+	data->map->maps = NULL;
 	data->map->height = 0;
 	data->map->width = 0;
 	data->tile_size = 0;
@@ -94,7 +96,7 @@ t_data	*data_init(void)
 	}
 	data->tile_size = SIZE;
 	data->map = malloc(sizeof(t_map));
-	data->tiles = malloc(14 * sizeof(void *));
+	data->tiles = malloc(15 * sizeof(void *));
 	data->player = malloc(sizeof(t_player));
 	if (!data->map || !data->tiles || !data->player)
 	{

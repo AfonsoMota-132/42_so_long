@@ -12,6 +12,18 @@
 
 #include "../incs/so_long_bonus.h"
 
+void	move2(t_data *data, int d)
+{
+	mlx_put_image_to_window(data->mlx, data->win, data->tiles[0],
+		(data->player->x * SIZE), (data->player->y * SIZE));
+	mlx_put_image_to_window(data->mlx, data->win, data->tiles[d],
+		(data->player->to_x * SIZE), (data->player->to_y * SIZE));
+	data->player->x = data->player->to_x;
+	data->player->y = data->player->to_y;
+	data->player->moves++;
+	ft_printf("moves: %i\n", data->player->moves);
+}
+
 int	check_dir(char *av)
 {
 	int	fd;

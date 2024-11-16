@@ -88,6 +88,7 @@ void	ft_free_arr(char **maps, t_data *data);
 
 //		Player Mov		//
 
+void	move2(t_data *data, int d);
 int		move_up(t_data *data);
 int		move_left(t_data *data);
 int		move_down(t_data *data);
