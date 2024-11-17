@@ -35,8 +35,8 @@ void	init_tiles2(t_data *data)
 			&data->tile_size, &data->tile_size);
 	data->tiles[11] = mlx_xpm_file_to_image(data->mlx, "./imgs/player_bot.xpm",
 			&data->tile_size, &data->tile_size);
-	data->tiles[12] = mlx_xpm_file_to_image(data->mlx, "./imgs/player_right.xpm",
-			&data->tile_size, &data->tile_size);
+	data->tiles[12] = mlx_xpm_file_to_image(data->mlx,
+			"./imgs/player_right.xpm", &data->tile_size, &data->tile_size);
 	data->tiles[13] = mlx_xpm_file_to_image(data->mlx, "./imgs/player_left.xpm",
 			&data->tile_size, &data->tile_size);
 	data->tiles[14] = mlx_xpm_file_to_image(data->mlx, "./imgs/mushroom.xpm",

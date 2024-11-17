@@ -34,9 +34,11 @@ void	flood_fill(char **maps, t_data *data, int x, int y)
 {
 	if (x < 0 || y < 0 || x >= data->map->width || y >= data->map->height)
 		return ;
-	if (maps[y][x] == 'f' || maps[y][x] == '1' || maps[y][x] == 'M')
+	if (maps[y][x] == 'f' || maps[y][x] == '1'
+		|| maps[y][x] == 'M' || maps[y][x] == 'E')
 		return ;
-	if (maps[y][x] != '1' && maps[y][x] != 'M')
+	if (maps[y][x] != '1' && maps[y][x] != 'M'
+		&& maps[y][x] != 'E')
 		maps[y][x] = 'f';
 	flood_fill(maps, data, x + 1, y);
 	flood_fill(maps, data, x - 1, y);
@@ -56,7 +58,8 @@ int	flood_check(char **maps, t_data *data)
 		while (++x < data->map->width)
 		{
 			if (maps[y][x] != '1' && maps[y][x] != 'f'
-				&& maps[y][x] != '0' && maps[y][x] != 'M')
+				&& maps[y][x] != '0' && maps[y][x] != 'M'
+				&& maps[y][x] != 'E')
 			{
 				ft_free_arr(maps, data);
 				return (1);

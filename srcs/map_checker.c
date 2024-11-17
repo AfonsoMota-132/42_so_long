@@ -119,8 +119,10 @@ int	map_checker(t_data *data)
 	if (flood(data) == 1)
 		return (ft_printf("Error\nMap does not have path!\n"));
 	if (has_other(data) == 1)
-		return (ft_printf("Error\nMap has other elements other than default!\n"));
+		return (ft_printf("Error\nMap has unkown elements!\n"));
 	if (data->map->height >= 8 || data->map->width >= 16)
 		return (ft_printf("Error\nMap is too big!"));
+	if (data->map->height <= 3 || data->map->width <= 3)
+		return (ft_printf("Error\nMap is too small!"));
 	return (0);
 }

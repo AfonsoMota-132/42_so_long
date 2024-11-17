@@ -14,6 +14,8 @@
 
 void	move2(t_data *data, int d)
 {
+	/*char	*str;*/
+
 	mlx_put_image_to_window(data->mlx, data->win, data->tiles[0],
 		(data->player->x * SIZE), (data->player->y * SIZE));
 	mlx_put_image_to_window(data->mlx, data->win, data->tiles[d],
@@ -21,7 +23,13 @@ void	move2(t_data *data, int d)
 	data->player->x = data->player->to_x;
 	data->player->y = data->player->to_y;
 	data->player->moves++;
-	ft_printf("moves: %i\n", data->player->moves);
+	/*str = ft_itoa(data->player->moves);*/
+	/*mlx_put_image_to_window(data->mlx, data->win, data->tiles[7],*/
+	/*	(data->map->width / 2) * SIZE, (data->map->height - 1) * SIZE);*/
+	/*mlx_string_put(data->mlx, data->win, (data->map->width / 2) * SIZE,*/
+	/*	(data->map->height * SIZE) - 50, 0x000000, "moves");*/
+	/*mlx_string_put(data->mlx, data->win, ((data->map->width / 2) * SIZE) + 100,*/
+	/*	(data->map->height * SIZE) - 50, 0x000000, str);*/
 }
 
 int	check_dir(char *av)

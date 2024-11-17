@@ -105,22 +105,24 @@ int	has_one_exit(t_data *data)
 int	map_checker(t_data *data)
 {
 	if (is_rectangle(data) == 1)
-		return (ft_printf("Not a rectangle!\n"));
+		return (ft_printf("Error\nNot a rectangle!\n"));
 	if (has_walls(data) == 1)
-		return (ft_printf("The walls are not complete!\n"));
+		return (ft_printf("Error\nThe walls are not complete!\n"));
 	if (has_one_pla(data) == 1)
-		return (ft_printf("More than one player!\n"));
+		return (ft_printf("Error\nMore than one player!\n"));
 	if (has_one_pla(data) == 2)
-		return (ft_printf("No player spawn in the map!\n"));
+		return (ft_printf("Error\nNo player spawn in the map!\n"));
 	if (has_one_exit(data) == 1)
-		return (ft_printf("More than one exit!\n"));
+		return (ft_printf("Error\nMore than one exit!\n"));
 	if (has_one_exit(data) == 2)
-		return (ft_printf("No exit in the map!\n"));
+		return (ft_printf("Error\nNo exit in the map!\n"));
 	if (flood(data) == 1)
-		return (ft_printf("Map does not have path!\n"));
+		return (ft_printf("Error\nMap does not have path!\n"));
 	if (has_other(data) == 1)
-		return (ft_printf("Map has other elements other than default!\n"));
+		return (ft_printf("Error\nMap has unkown elements!\n"));
 	if (data->map->height >= 8 || data->map->width >= 16)
-		return (ft_printf("Map is too big!"));
+		return (ft_printf("Error\nMap is too big!"));
+	if (data->map->height <= 3 || data->map->width <= 3)
+		return (ft_printf("Error\nMap is too small!"));
 	return (0);
 }

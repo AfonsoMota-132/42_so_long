@@ -49,7 +49,7 @@ int	map_loader(t_data *data, char *av)
 		return (ft_printf("Error\nEmpty map file!\n"));
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
-		return (ft_printf("Error\nInvalid map file!\n"));	
+		return (ft_printf("Error\nInvalid map file!\n"));
 	i = 0;
 	while (i <= data->map->height)
 	{
