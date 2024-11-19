@@ -12,7 +12,7 @@
 
 #include "../incs/so_long.h"
 
-void	count_collect(t_data *data)
+int	count_collect(t_data *data)
 {
 	int	x;
 	int	y;
@@ -27,6 +27,10 @@ void	count_collect(t_data *data)
 				data->collect++;
 		}
 	}
+	if (data->collect == 0)
+		return (1);
+	else
+		return (0);
 }
 
 void	init_tiles2(t_data *data)

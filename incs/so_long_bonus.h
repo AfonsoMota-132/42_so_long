@@ -63,7 +63,7 @@ t_data	*data_init(void);
 //			Map			//
 
 int		map_loader(t_data *data, char *av);
-void	count_collect(t_data *data);
+int		count_collect(t_data *data);
 
 //			Render		//
 int		render_map(t_data *data);
@@ -89,9 +89,7 @@ void	ft_free_arr(char **maps, t_data *data);
 //		Player Mov		//
 
 void	move2(t_data *data, int d);
-int		move_up(t_data *data);
-int		move_left(t_data *data);
-int		move_down(t_data *data);
-int		move_right(t_data *data);
+int		move_left_right(t_data *data, int side);
+int		move_down_up(t_data *data, int side);
 
 #endif

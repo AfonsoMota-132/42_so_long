@@ -26,12 +26,12 @@ int	key_hook(int keycode, t_data *data)
 		exit (0);
 	}
 	else if (keycode == 65362 || keycode == 119)
-		move_up(data);
+		move_down_up(data, 0);
 	else if (keycode == 65361 || keycode == 97)
-		move_left(data);
+		move_left_right(data, 0);
 	else if (keycode == 65364 || keycode == 115)
-		move_down(data);
+		move_down_up(data, 1);
 	else if (keycode == 65363 || keycode == 100)
-		move_right(data);
+		move_left_right(data, 1);
 	return (0);
 }

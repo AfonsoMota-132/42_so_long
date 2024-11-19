@@ -22,6 +22,8 @@ int	move(t_data *data)
 	else if (data->map->maps[data->player->to_y][data->player->to_x] == 'E'
 		&& data->player->collect == data->collect)
 	{
+		data->player->moves++;
+		printf("moves: %i\n", data->player->moves);
 		printf("Game won!\n");
 		key_hook(65307, data);
 	}

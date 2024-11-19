@@ -122,7 +122,7 @@ int	map_checker(t_data *data)
 		return (ft_printf("Error\nMap has unkown elements!\n"));
 	if (data->map->height >= 8 || data->map->width >= 16)
 		return (ft_printf("Error\nMap is too big!"));
-	if (data->map->height <= 3 || data->map->width <= 3)
+	if (data->map->height < 3 || data->map->width < 3)
 		return (ft_printf("Error\nMap is too small!"));
 	return (0);
 }

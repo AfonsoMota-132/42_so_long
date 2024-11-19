@@ -36,31 +36,17 @@ int	move(t_data *data, int d)
 	return (0);
 }
 
-int	move_up(t_data *data)
+int	move_down_up(t_data *data, int side)
 {
-	if (data->map->maps[data->player->y - 1][data->player->x] != '1')
+	if (side == 0
+		&& data->map->maps[data->player->y - 1][data->player->x] != '1')
 	{
 		data->player->to_x = data->player->x;
 		data->player->to_y = data->player->y - 1;
 		move(data, 10);
 	}
-	return (0);
-}
-
-int	move_left(t_data *data)
-{
-	if (data->map->maps[data->player->y][data->player->x - 1] != '1')
-	{
-		data->player->to_x = data->player->x - 1;
-		data->player->to_y = data->player->y;
-		move(data, 13);
-	}
-	return (0);
-}
-
-int	move_down(t_data *data)
-{
-	if (data->map->maps[data->player->y + 1][data->player->x] != '1')
+	else if (side == 1
+		&& data->map->maps[data->player->y + 1][data->player->x] != '1')
 	{
 		data->player->to_x = data->player->x;
 		data->player->to_y = data->player->y + 1;
@@ -69,9 +55,17 @@ int	move_down(t_data *data)
 	return (0);
 }
 
-int	move_right(t_data *data)
+int	move_left_right(t_data *data, int side)
 {
-	if (data->map->maps[data->player->y][data->player->x + 1] != '1')
+	if (side == 0
+		&& data->map->maps[data->player->y][data->player->x - 1] != '1')
+	{
+		data->player->to_x = data->player->x - 1;
+		data->player->to_y = data->player->y;
+		move(data, 13);
+	}
+	else if (side == 1
+		&& data->map->maps[data->player->y][data->player->x + 1] != '1')
 	{
 		data->player->to_x = data->player->x + 1;
 		data->player->to_y = data->player->y;

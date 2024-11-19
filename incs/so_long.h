@@ -63,7 +63,7 @@ t_data	*data_init(void);
 //			Map			//
 
 int		map_loader(t_data *data, char *av);
-void	count_collect(t_data *data);
+int		count_collect(t_data *data);
 
 //			Render		//
 int		render_map(t_data *data);
