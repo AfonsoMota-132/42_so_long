@@ -51,7 +51,7 @@ clean:
 	$(RM) $(OBJS)
 	$(RM) $(BONUS_OBJS)
 
-fclean:
+fclean: clean
 	$(MAKE) fclean -C ./libs/libft/
 	$(MAKE) fclean -C ./libs/libft/
 	$(RM) $(NAME)
